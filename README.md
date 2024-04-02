@@ -1,8 +1,21 @@
-This web app is to show how to integrate the backend written in django and frontend written in react. 
+# Django-React Integration
 
-Fucntionality:
-1. Expense Charts
-2. Reminder Notifications
-3. Editable Transaction List
-4. Total Budget calculated
-5. Calender
+This web app demonstrates the integration of a Django backend with a React frontend. The project is currently in development.
+
+## Getting Started
+
+To run the project locally, follow these steps:
+
+### Terminal 1 (Backend)
+
+```bash
+cd Backend
+source venv/bin/activate
+python manage.py runserver
+```
+### Terminal 2 (frontend)
+
+```bash
+cd frontend
+npm start
+```
