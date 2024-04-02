@@ -19,3 +19,8 @@ python manage.py runserver
 cd frontend
 npm start
 ```
+
+### Key Features
+( add some images of the app)
+
+### Key Concepts used
