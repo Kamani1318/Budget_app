@@ -8,7 +8,10 @@ To run the project locally, follow these steps:
 
 ### Terminal 1 (Backend)
 
+
+
 ```bash
+python3 -m venv venv
 cd Backend
 source venv/bin/activate
 python manage.py runserver
