@@ -168,3 +168,42 @@ class ReminderViewset(viewsets.ViewSet):
         project = self.queryset.get(id=pk)
         project.delete()
         return Response(status=204)
+    
+class FinanceViewset(viewsets.ViewSet):
+    permission_classes = [permissions.AllowAny]
+    queryset = Finance.objects.all()
+    serializer_class = FinanceSerializer
+    def list(self, request):
+        queryset = self.queryset
+        serializer = self.serializer_class(queryset, many=True)
+        return Response(serializer.data)
+
+    def create(self, request):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status = 404)
+
+    def retrieve(self, request, pk=None):
+        project = self.queryset.get(id=pk)
+        serializer = self.serializer_class(project)
+        return Response(serializer.data)
+
+    def update(self, request, pk=None):
+        project = self.queryset.get(id=pk)
+        serializer = self.serializer_class(project,data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status = 404)
+
+    def partial_update(self, request, pk=None):
+        pass
+
+    def destroy(self, request, pk=None):
+        project = self.queryset.get(id=pk)
+        project.delete()
+        return Response(status=204)

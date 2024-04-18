@@ -94,7 +94,7 @@ export default function Navbar(props) {
           </IconButton>
        
           <Typography variant="h6" noWrap component="div">
-            Our application
+            Budget App
           </Typography>
         </Toolbar>
       </AppBar>

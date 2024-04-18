@@ -23,3 +23,8 @@ class ReminderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reminder
         fields = ("id","r_transaction_name","r_category","r_amount","r_transaction_date","r_mode_of_payment","r_description")
+        
+class FinanceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Finance
+        fields = ("id","month_name","month","income","balance","expense")

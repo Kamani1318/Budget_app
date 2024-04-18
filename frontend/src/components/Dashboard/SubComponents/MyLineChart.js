@@ -60,7 +60,8 @@ export default function MyLineChart() {
   const monthlyAmounts = groupedDataArrayByMonth.map(item => item.amount);
 
   let dataToDisplay, xAxisData;
-  switch(displayMode) {
+  switch(displayMode) 
+  {
     case 'Monthly':
         dataToDisplay = monthlyAmounts;
         xAxisData = transactionMonths;
@@ -73,24 +74,28 @@ export default function MyLineChart() {
         dataToDisplay = amounts;
         xAxisData = transactionDates;
         break;
-}
-
-  return (
-    <Card sx={{ display: 'flex', flexDirection: 'column', borderRadius: '16px' }}>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', padding: '15px', position: 'relative' }}>
-        <Typography variant="h5" style={{ color: 'black', fontWeight: 'bold' }}>Expense Chart</Typography>
-        <div style={{ position: 'absolute', right: '15px' }}>
-          <MyDropDown setDisplayMode={setDisplayMode}/>
-        </div>
-      </div>
-      <LineChart
-  width={500}
-  height={300}
-  series={[
-    { data: dataToDisplay, label: displayMode, lineWidth: 2 }, // Use displayMode as the label
-  ]}
-  xAxis={[{ scaleType: 'time', data: xAxisData }]}
-/>
-    </Card>
-  );
+  }
+      return (
+        <Card sx={{ display: 'flex', flexDirection: 'column', borderRadius: '16px', backgroundColor: 'white' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', padding: '15px', position: 'relative' }}>
+            <Typography variant="h5" style={{ color: 'black', fontWeight: 'bold' }}>Expense Chart</Typography>
+            <div style={{ position: 'absolute', right: '15px' }}>
+              <MyDropDown setDisplayMode={setDisplayMode}/>
+            </div>
+          </div>
+          <LineChart
+            width={500}
+            height={300}
+            series={[
+              { data: dataToDisplay, label: displayMode, lineWidth: 2 }, // Use displayMode as the label
+            ]}
+            xAxis={[
+              { 
+                scaleType: 'time', 
+                data: xAxisData, 
+              }
+            ]}
+          />
+        </Card>
+      );
 }
